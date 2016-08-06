@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+/**
+ * @file
+ */
+
+// This is relative to the location the ansible command is run from.
+require('../vendor/autoload.php');
+
+$plugin = new \Ansible\ExampleModule();
+try {
+  $plugin->execute();
+}
+catch (\Exception $e) {}

@@ -1,0 +1,25 @@
+---
+
+- name: Play
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Action Test
+      action: example_task
+      args:
+        "some [funny] value": true
+        array:
+          - item 1
+          - item 2
+          - "Values \"'"
+          - 'Values "'
+          - "てすと"
+          - "Ł Ą Ż Ę Ć Ń Ś Ź"
+          - "Я Б Г Д Ж Й"
+          - "Ä ä Ü ü ß"
+        hierarchy:
+          of:
+            content: yes
+      register: results
+    - debug: var=results
